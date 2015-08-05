@@ -116,7 +116,7 @@ class GridFieldImporter_Request extends RequestHandler {
 		$form->Fields()->unshift(
 			new LiteralField('mapperfield', $mapper->forTemplate())
 		);
-		$form->setFormAction($this->Link('import').'/'.$file->ID);
+		$form->setFormAction(Controller::join_links($this->Link('import'), $file->ID));
 		$content = ArrayData::create(array(
 			'File' => $file,
 			'MapperForm'=> $form
